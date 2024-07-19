@@ -11,7 +11,7 @@ connection_states = {
 
 async def create_tcp_connection(host, port):
     try:
-        reader, writer = await asyncio.open_connection(host, port, family=socket.AF_INET6)
+        reader, writer = await asyncio.open_connection(host, port, family=socket.AF_INET)
         connection_states['successful'] += 1
         print(f'Connection established with {host}:{port}')
         
@@ -40,12 +40,12 @@ async def main(host, port, num_connections):
     await asyncio.gather(*tasks, return_exceptions=True)
 
 if __name__ == '__main__':
-    ipv6_host = '2001:4860:4860::8888'  # Replace with your server's IPv6 address
+    ipv4_host = '8.8.8.8'  # Replace with your server's IP address
     port = 443  # Replace with the desired port
     num_connections = 100  # Number of concurrent connections
 
     start_time = time.time()
-    asyncio.run(main(ipv6_host, port, num_connections))
+    asyncio.run(main(ipv4_host, port, num_connections))
     end_time = time.time()
 
     print(f'Total time taken: {end_time - start_time} seconds')
