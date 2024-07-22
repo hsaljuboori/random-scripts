@@ -42,7 +42,7 @@ async def main(host, port, num_connections):
 if __name__ == '__main__':
     ipv6_host = '2001:4860:4860::8888'  # Replace with your server's IPv6 address
     port = 443  # Replace with the desired port
-    num_connections = 100  # Number of concurrent connections
+    num_connections = 350  # Number of concurrent connections
 
     start_time = time.time()
     asyncio.run(main(ipv6_host, port, num_connections))
