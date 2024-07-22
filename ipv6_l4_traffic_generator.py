@@ -42,15 +42,15 @@ async def main(src_ips, dst_ips, port, num_connections):
 
 if __name__ == '__main__':
     dst_ips = [
-        '2001:4860:4860::8888',  # Replace with dst server's IPv6 addresses
+        '2001:4860:4860::8888',  # Replace with your server's IPv6 addresses
         '2001:4860:4860::8844',  # Add more addresses as needed
     ]
     src_ips = [
-        '2001:db8::1',  # Replace with EC2 (enX0) source IPv6 addresses
-        '2001:db8::2',  # Add second (enX1) EC2 IPv6 addresses as needed
+        '2001:db8::1',  # Replace with your source IPv6 addresses
+        '2001:db8::2',  # Add more addresses as needed
     ]
     port = 443  # Replace with the desired port
-    num_connections = 10000  # Number of concurrent connections
+    num_connections = 350  # Number of concurrent connections
 
     start_time = time.time()
     asyncio.run(main(src_ips, dst_ips, port, num_connections))
